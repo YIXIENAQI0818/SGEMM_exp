@@ -1,0 +1,28 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+*.cu_o
+
+# CUDA compiled executables (no extension)
+SGEMM/main
+SGEMM/main2
+SGEMM/main_MMP
+SGEMM/main_MMP_share
+SGEMM/main_MMP_pipeline
+
+# Compressed archives
+*.zip
+*.rar
+*.7z
+
+# macOS junk
+.DS_Store
+__MACOSX/
+._*
+
+# IDE files
+.vs/
+.vscode/
+.idea/
