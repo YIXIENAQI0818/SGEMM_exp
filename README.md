@@ -26,19 +26,25 @@ Tensor Core + 流水线执行 (Pipeline)
 
 ```
 SGEMM/
-├── main.cu                    # Stage 1: 朴素 CUDA SGEMM
-├── main2.cu                   # Stage 2: 合并访存优化
-├── main_MMP.cu                # Stage 3: Warp-level 矩阵乘加
-├── main_MMP_share.cu          # Stage 4: 共享内存分块
-├── main_MMP_pipeline.cu       # Stage 5: Tensor Core + 流水线执行
-├── Makefile                   # 编译脚本
-├── run.sh                     # 批量运行脚本
-├── plt.ipynb                  # 性能可视化 (Jupyter Notebook)
-├── gpu_sgemm_performance.pdf  # 性能对比图表
-├── ref/                       # 参考资料
-│   ├── CUDA_matrix_mult.pdf
-│   └── moduleDocument.pdf
-└── README                     # 原始实验说明
+├── SGEMM/                        # 源码与脚本
+│   ├── main.cu                   #   Stage 1: 朴素 CUDA SGEMM
+│   ├── main2.cu                  #   Stage 2: 合并访存优化
+│   ├── main_MMP.cu               #   Stage 3: Warp-level 矩阵乘加
+│   ├── main_MMP_share.cu         #   Stage 4: 共享内存分块
+│   ├── main_MMP_pipeline.cu      #   Stage 5: Tensor Core + 流水线执行
+│   ├── Makefile                  #   编译脚本
+│   ├── run.sh                    #   批量运行脚本
+│   ├── plt.ipynb                 #   性能可视化 (Jupyter Notebook)
+│   └── README                    #   原始实验说明
+│
+├── report/                       # 报告与参考资料
+│   ├── 程宣赫2023202250汇报.pptx   #   课程汇报 PPT
+│   ├── gpu_sgemm_performance.pdf  #   性能对比图表
+│   ├── Progressive Optimization of SGEMM on GPUs ... .pdf  # 参考论文
+│   ├── CUDA_matrix_mult.pdf      #   参考资料
+│   └── moduleDocument.pdf        #   参考资料
+│
+└── README.md                     # 本文件
 ```
 
 ## 各阶段技术要点
@@ -74,11 +80,13 @@ jupyter notebook plt.ipynb
 
 ## 📊 性能对比
 
-详见 `gpu_sgemm_performance.pdf` 和 `plt.ipynb`，展示了从朴素实现到 Tensor Core 流水线的 GFLOPS 提升曲线。
+详见 `report/gpu_sgemm_performance.pdf` 和 `SGEMM/plt.ipynb`，展示了从朴素实现到 Tensor Core 流水线的 GFLOPS 提升曲线。
 
-## 📚 参考论文
+## 📚 参考资料
 
-- *Progressive Optimization of SGEMM on GPUs: From CUDA Cores to Tensor Cores with Pipelined Execution*
+- `report/Progressive Optimization of SGEMM on GPUs ... .pdf` — 核心参考论文
+- `report/CUDA_matrix_mult.pdf` — CUDA 矩阵乘法文档
+- `report/moduleDocument.pdf` — CUDA 模块文档
 
 ## 📄 License
 
